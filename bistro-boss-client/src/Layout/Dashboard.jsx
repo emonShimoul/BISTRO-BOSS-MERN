@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import {
   FaShoppingCart,
   FaWallet,
@@ -20,45 +20,45 @@ const Dashboard = () => {
             Open drawer
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side bg-[#D1A054]">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+          <ul className="menu p-4 w-80 h-full">
             {/* Sidebar content here */}
             <li>
-              <Link>
+              <NavLink to="/dashboard/home">
                 <FaHome></FaHome>User Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link>
+              <NavLink to="/dashboard/reservations">
                 <FaCalendarAlt></FaCalendarAlt>Reservations
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link>
+              <NavLink to="/dashboard/history">
                 <FaWallet></FaWallet>Payment History
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="">
+              <NavLink to="/dashboard/mycart">
                 <FaShoppingCart></FaShoppingCart>My Cart
-              </Link>
+              </NavLink>
             </li>
             <div className="divider"></div>
             <li>
-              <Link to="/">
+              <NavLink to="/">
                 <FaHome></FaHome>Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/menu">
+              <NavLink to="/menu">
                 <FaHome></FaHome>Menu
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/">
-                <FaHome></FaHome>Home
-              </Link>
+              <NavLink to="/order/salad">
+                <FaHome></FaHome>Shop
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -1,10 +1,18 @@
+import { Link, Outlet } from "react-router-dom";
+import {
+  FaShoppingCart,
+  FaWallet,
+  FaCalendarAlt,
+  FaHome,
+} from "react-icons/fa";
+
 const Dashboard = () => {
   return (
     <div>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
-          {/* Page content here */}
+          <Outlet></Outlet>
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
@@ -17,10 +25,40 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <li>
-              <a>Sidebar Item 1</a>
+              <Link>
+                <FaHome></FaHome>User Home
+              </Link>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <Link>
+                <FaCalendarAlt></FaCalendarAlt>Reservations
+              </Link>
+            </li>
+            <li>
+              <Link>
+                <FaWallet></FaWallet>Payment History
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                <FaShoppingCart></FaShoppingCart>My Cart
+              </Link>
+            </li>
+            <div className="divider"></div>
+            <li>
+              <Link to="/">
+                <FaHome></FaHome>Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/menu">
+                <FaHome></FaHome>Menu
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                <FaHome></FaHome>Home
+              </Link>
             </li>
           </ul>
         </div>

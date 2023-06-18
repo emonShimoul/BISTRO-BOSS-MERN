@@ -119,7 +119,7 @@ const Login = () => {
                   value="Login"
                   className="btn btn-primary"
                   //  TODO: make button disabled for captcha
-                  disabled={false}
+                  disabled={disabled}
                 />
               </div>
             </form>

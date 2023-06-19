@@ -27,18 +27,8 @@ const SocialLogin = () => {
         body: JSON.stringify(savedUser),
       })
         .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            // Swal.fire({
-            //   position: "top-end",
-            //   icon: "success",
-            //   title: "User created successfully!!",
-            //   showConfirmButton: false,
-            //   timer: 1500,
-            // });
-            // navigate("/");
-            navigate(from, { replace: true });
-          }
+        .then(() => {
+          navigate(from, { replace: true });
         });
     });
   };

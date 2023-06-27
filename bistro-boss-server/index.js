@@ -60,8 +60,27 @@ async function run() {
       res.send({ token });
     });
 
+    // warning: use verifyJWT before using verifyAdmin
+    const verifyAdmin = async (req, res, next) => {
+      const email = req.decoded.email;
+      const query = { email: email };
+      const user = await usersCollection.findOne(query);
+      if (user?.role !== "admin") {
+        return res
+          .status(403)
+          .send({ error: true, message: "forbidden message" });
+      }
+      next();
+    };
+
+    /* 
+    0. do not show secure links those who should not see the link
+    1. use jwt token: verifyJWT
+    2. use verifyAdmin middleware
+    */
+
     // users related apis
-    app.get("/users", async (req, res) => {
+    app.get("/users", verifyJWT, verifyAdmin, async (req, res) => {
       const result = await usersCollection.find().toArray();
       res.send(result);
     });

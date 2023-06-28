@@ -6,8 +6,8 @@ const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const [isAdmin, isAdminLoading] = useAdmin();
   const location = useLocation();
-  console.log(user);
-  console.log(loading);
+  // console.log(user);
+  // console.log(loading);
 
   if (loading || isAdminLoading) {
     return <span className="loading loading-dots loading-lg"></span>;
